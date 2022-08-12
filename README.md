@@ -89,7 +89,7 @@ root.render(
 );
 ```
 
-### Step4: 对内容进行国际化
+### Step4: 对内容进行国际化，将国际化内容抽离到 json 文件
 
 - 不要直接使用 `i18next` 的 `t()` 进行国际化
   `i18next` 的 `t()` 不在 `react-i18next` 和 `React` 的生命周期中，如果在加载异步翻译前调用的内容将不会被翻译，并且如果语言更改了，国际化内容也不会更新
@@ -113,8 +113,6 @@ function App() {
 }
 ```
 
-### Step5: 将国际化内容抽离到 json 文件
-
 ```json
 // src/locales/en.json
 
@@ -131,4 +129,16 @@ function App() {
 }
 ```
 
+### Step5: 切换当前语言
+
+```jsx
+// src/App.js
+
+function switchLanguage(e) {
+  i18n.changeLanguage(e.target.value);
+}
+```
+
 ## 参考资料
+
+https://medium.com/@danduan/translating-react-apps-using-i18next-d2f78bc87314#673f

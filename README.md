@@ -139,6 +139,10 @@ function switchLanguage(e) {
 }
 ```
 
+## 图片国际化
+
+## 样式国际化
+
 ## 参考资料
 
 https://medium.com/@danduan/translating-react-apps-using-i18next-d2f78bc87314#673f

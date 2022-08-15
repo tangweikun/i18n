@@ -1,3 +1,24 @@
 .App {
   text-align: center;
 }
+
+.my-16 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.highlight {
+  color: red;
+  font-weight: 600;
+}
+
+.i18-style:lang(zh) {
+  color: blue;
+  font-size: 12px;
+}
+
+.i18-style:lang(en) {
+  color: green;
+  font-size: 24px;
+  font-weight: 600;
+}

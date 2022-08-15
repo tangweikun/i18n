@@ -157,13 +157,49 @@ function switchLanguage(e) {
 
 不同语言表达相同的意思，需要的文本量不同，这就导致文案长度不固定。这就要求我们在视觉设计和开发时就要进行考虑。
 
-比如一些按钮，只有两个汉字的宽度，开发就写死宽度，让文字居中了。但需要国际化翻译为英文后发现这个宽度就放不下了，需要改为按钮不设宽度并设置 padding 来自适应文字。
+CSS 中有一个伪类 `:lang()`，根据元素使用的语言进行匹配。元素使用的语言则根据元素的 `lang` 属性来指定，一般情况下我们只需要在 `html` 元素上设置 `lang` 属性，然后其他元素从这里继承。
 
-需要注意的点：
+```jsx
+// src/App.js
+
+import { Helmet } from "react-helmet";
+
+<Helmet>
+  <html lang={i18n.language} />
+</Helmet>;
+```
+
+我们可以根据不同的语言环境对指定内容进行不同的样式设置
+
+```jsx
+// src/App.js
+
+<div className="my-16">
+  <span className="highlight">样式国际化：</span>
+  <span className="i18-style">{t("Hello World")}</span>
+</div>
+```
+
+```css
+.i18-style:lang(zh) {
+  color: blue;
+  font-size: 12px;
+}
+
+.i18-style:lang(en) {
+  color: green;
+  font-size: 24px;
+  font-weight: 600;
+}
+```
+
+### 需要注意的点
 
 - 考虑可能会换行的情况；
 - 尽量不要使用固定宽度；
 - 尽量不要使用固定高度；
+
+### `:lang()` 伪类选择器
 
 ## 国际化内容维护
 

@@ -117,17 +117,17 @@ function App() {
 }
 ```
 
-```json
-// src/locales/en.json
+- `src/locales/en.json`
 
+```json
 {
   "Hello World": "Hello World"
 }
 ```
 
-```json
-// src/locales/zh.json
+- `src/locales/zh.json`
 
+```json
 {
   "Hello World": "你好，世界"
 }
@@ -157,6 +157,8 @@ function switchLanguage(e) {
 
 不同语言表达相同的意思，需要的文本量不同，这就导致文案长度不固定。这就要求我们在视觉设计和开发时就要进行考虑。
 
+### `:lang()` 伪类选择器
+
 CSS 中有一个伪类 `:lang()`，根据元素使用的语言进行匹配。元素使用的语言则根据元素的 `lang` 属性来指定，一般情况下我们只需要在 `html` 元素上设置 `lang` 属性，然后其他元素从这里继承。
 
 ```jsx
@@ -181,6 +183,8 @@ import { Helmet } from "react-helmet";
 ```
 
 ```css
+/* src/App.css */
+
 .i18-style:lang(zh) {
   color: blue;
   font-size: 12px;
@@ -199,9 +203,15 @@ import { Helmet } from "react-helmet";
 - 尽量不要使用固定宽度；
 - 尽量不要使用固定高度；
 
-### `:lang()` 伪类选择器
+## 日期和时间格式
 
-## 国际化内容维护
+如果需要翻译与日期和时间相关的内容，推荐使用成熟的第三方库
+
+- [moment.js](https://momentjs.com/)
+
+- [date-fns](https://date-fns.org/)
+
+## 国际化内容管理
 
 理论上我们需要将不同的语言放到不同的 JSON 文件里，比如 `zh.json` 和 `en.json`。它们都会有相同的 `key`，然后 `value` 是不同的。我们在代码中可以通过 `t('Hello World')` 拿到文案 `你好，世界` 或是 `Hello World`。
 
@@ -211,9 +221,13 @@ import { Helmet } from "react-helmet";
 
 - 方案 2：使用在线协作表格，维护一个含有不同国家标志符字段的表格，让开发和产品在上面配置国际化内容
 
-- 方案 3：文案配置平台
+- 方案 3：自建国际化内容管理平台
 
-常见问题：
+- 方案 4：使用第三方国际化内容管理平台
+
+  [xtm](https://xtm.cloud/) 、[transifex](https://www.transifex.com/) 、[locize](https://locize.com/) 、[smartling](https://www.smartling.com/)
+
+  常见问题：
 
 1. 一些废弃的文案没有删除
 
@@ -227,8 +241,23 @@ import { Helmet } from "react-helmet";
 
    谁不小心删了某一行、某个字段，我们是较难发现的。
 
+## 翻译方式
+
+- 内部专业翻译人士
+
+  使用其他语言工作的产品支持专家和产品所有者是很好的候选人，因为他们了解您的产品并且通常需要较少的上下文。 他们将需要培训，因此请考虑机会成本与雇用外部供应商的关系。
+
+- 第三方翻译机构
+
+  如果预算允许，聘请专业的第三方是一个不错的选择
+
+- 机器翻译
+
+  当人工翻译尚不可用时，暂时使用机器翻译成为一种新兴趋势。 机器辅助翻译也存在于人工翻译校对和编辑机器翻译的地方。机器翻译最致命的缺陷就是翻译出来的结果可能与实际内容意义偏差较大
+
 ## 参考资料
 
 - [Translating React Apps with i18next](https://medium.com/@danduan/translating-react-apps-using-i18next-d2f78bc87314#673f)
-
 - [为什么产品国际化看似简单，实际落地却困难重重？](https://juejin.cn/post/7059008963144056862)
+- [react-i18next](https://react.i18next.com/)
+- [i18next](https://www.i18next.com/)

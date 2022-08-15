@@ -18,7 +18,7 @@ function App() {
         </select>
       </div>
 
-      <img src={require(`./assets/flag-${t("suffix")}.jpg`)} alt="" />
+      <img src={require(`./assets/flag-${t("pathSuffix")}.jpg`)} alt="" />
 
       <h2>{t("Hello World")}</h2>
       <h2>

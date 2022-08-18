@@ -255,6 +255,15 @@ import { Helmet } from "react-helmet";
 
   当人工翻译尚不可用时，暂时使用机器翻译成为一种新兴趋势。 机器辅助翻译也存在于人工翻译校对和编辑机器翻译的地方。机器翻译最致命的缺陷就是翻译出来的结果可能与实际内容意义偏差较大
 
+## 老项目进行国际化
+
+### 痛点
+
+- 维护资源文件太麻烦
+- 代码侵入性太强，需要一个个文件的去查找和修改
+
+https://github.com/goldEli/miao-i18n
+
 ## 参考资料
 
 - [Translating React Apps with i18next](https://medium.com/@danduan/translating-react-apps-using-i18next-d2f78bc87314#673f)
